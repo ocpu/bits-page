@@ -42,7 +42,7 @@ nav ul li a:hover{
 body > header {
     display: flex;
     align-items: center;
-    background-color: #3366b0
+    background-color: #003380;
 }
 body > header > h1 {
     display: block;

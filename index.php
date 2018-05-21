@@ -1,12 +1,14 @@
 <?php
 
 $ROOT = __DIR__;
-foreach_file(__DIR__ . "/lib", function ($file) {
+if (file_exists(__DIR__ . "/lib")) foreach (scandir(__DIR__ . "/lib") as $file) {
+    if ($file === "." || $file === ".." || !is_file(__DIR__ . "/lib"."/".$file)) continue;
     include_once __DIR__ . "/lib/$file";
-});
-foreach_file(__DIR__ . "/config", function ($file) {
+}
+if (file_exists(__DIR__ . "/config")) foreach (scandir(__DIR__ . "/config") as $file) {
+    if ($file === "." || $file === ".." || !is_file(__DIR__ . "/config"."/".$file)) continue;
     include_once __DIR__ . "/config/$file";
-});
+}
 
 foreach ($routes as $matcher => $current_route) {
     if (preg_match($matcher, $_SERVER["REQUEST_URI"]))

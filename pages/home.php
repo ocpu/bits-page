@@ -1,6 +1,6 @@
 <?php
 foreach_file($ROOT . "/posts", function ($file) use ($MARKDOWN) {
-    if ($file === '_example.md') return
+    // if ($file === '_example.md') return
     $post = extract_post($GLOBALS["ROOT"] . "/posts/$file", $MARKDOWN);
     $title = $post["data"]["title"];
     $slug = str_replace(" ", "-", strtolower($title));
