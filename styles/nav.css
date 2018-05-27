@@ -1,0 +1,16 @@
+nav {
+  background-color: #003380;
+}
+nav > ul {
+  list-style: none;
+}
+nav > ul > li > a {
+  text-align: center;
+  color: #eeeeee;
+  text-decoration: none;
+}
+nav > ul > li > a:focus,
+nav > ul > li > a:hover {
+  background-color: #244b85;
+  outline: none;
+}

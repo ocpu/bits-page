@@ -14,12 +14,16 @@ foreach ($routes as $matcher => $current_route) {
     if (preg_match($matcher, $_SERVER["REQUEST_URI"]))
         break;
 }
+include __DIR__ . "/pages/".$current_route["page"].".php";
 ?><!DOCTYPE html>
 <html lang="<?=$LANG?>">
 <head>
     <meta charset="utf-8">
     <meta name="Content-Security-Policy" content="script-src 'self' https://apis.google.com">
     <meta name="viewport" content="width=device-width">
+    <style>html{font-size:100%}body{margin:0}html,body{width:100vw;height:100vh;position:relative;overflow-x:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}*{box-sizing:border-box}</style>
+    <title><?= $current_route["title"]?> - BITS</title>
+    <?php if (function_exists("metadata")) metadata() ?>
     <?php foreach_file(__DIR__ . "/styles", function ($file) use ($current_route) {
         echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/$file\" media=\"screen\">";
     })?>
@@ -40,9 +44,11 @@ foreach ($routes as $matcher => $current_route) {
                 }?>
             </ul>
         </nav>
-        <main>
-            <?php include __DIR__ . "/pages/".$current_route["page"].".php"; ?>
-        </main>
+        <div>
+            <main>
+                <?php if (function_exists("content")) content() ?>
+            </main>
+        </div>
     </div>
 
     <!-- Temporary TODO list -->
