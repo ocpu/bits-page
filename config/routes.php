@@ -1,12 +1,12 @@
 <?php
 $routes = [
     "/^\/$|^\/home\/?|^\/home.html/" => [
-        "title" => "Home",
+        "title" => $LANG === "sv" ? "Hem" : "Home",
         "path" => "/",
         "page" => "home"
     ],
     "/^\/about\/?|^\/about.html/" => [
-        "title" => "About",
+        "title" => $LANG === "sv" ? "Om" : "About",
         "path" => "/about",
         "page" => "about"
     ]

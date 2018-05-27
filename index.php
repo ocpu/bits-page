@@ -18,6 +18,7 @@ foreach ($routes as $matcher => $current_route) {
 <html lang="<?=$LANG?>">
 <head>
     <meta charset="utf-8">
+    <meta name="Content-Security-Policy" content="script-src 'self' https://apis.google.com">
     <meta name="viewport" content="width=device-width">
     <?php foreach_file(__DIR__ . "/styles", function ($file) use ($current_route) {
         echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/$file\" media=\"screen\">";
@@ -25,13 +26,6 @@ foreach ($routes as $matcher => $current_route) {
     <?php foreach_file(__DIR__ . "/styles/" . $current_route["page"], function ($file) use ($current_route) {
         echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"/styles/".$current_route["page"]."/$file\" media=\"screen\">";
     })?>
-    <?php foreach_file(__DIR__ . "/js", function ($file) use ($current_route) {
-        echo "<script type=\"text/javascript\" src=\"/js/$file\" async defer>";
-    })?>
-    <?php foreach_file(__DIR__ . "/js/" . $current_route["page"], function ($file) use ($current_route) {
-            echo "<script type=\"text/javascript\" src=\"/js/".$current_route["page"]."/$file\" async defer>";
-    })?>
-    <title><?= $current_route["title"]?> - BITS</title>
 </head>
 <body>
     <header>
@@ -66,5 +60,11 @@ foreach ($routes as $matcher => $current_route) {
         <div class="part2"></div>
         <div class="part3"></div>
     </footer>
+    <?php foreach_file(__DIR__ . "/js", function ($file) use ($current_route) {
+        echo "<script type=\"text/javascript\" src=\"/js/$file\" async defer>";
+    })?>
+    <?php foreach_file(__DIR__ . "/js/" . $current_route["page"], function ($file) use ($current_route) {
+        echo "<script type=\"text/javascript\" src=\"/js/".$current_route["page"]."/$file\" async defer>";
+    })?>
 </body>
 </html>

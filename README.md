@@ -12,3 +12,6 @@
 - __`styles/{page}/`__: Page specific CSS
 - __`index.php/`__: Page controller
 - __`.htaccess/`__: Apache config
+
+## pages
+Pages can define 2 functions named content and metadata. 

@@ -20,8 +20,8 @@ function extract_post($path, $parser) {
             $data[$match[1]] = 
                 $match[2] === "sv" && $GLOBALS["LANG"] === "sv" ? $data[$keys[0]] :
                 $match[2] === "sv" && $GLOBALS["LANG"] === "en" ? $data[$keys[1]] :
-                $match[2] === "en" && $GLOBALS["LANG"] === "sv" ? $data[$keys[0]] :
-                $match[2] === "en" && $GLOBALS["LANG"] === "en" ? $data[$keys[1]] :
+                $match[2] === "en" && $GLOBALS["LANG"] === "sv" ? $data[$keys[1]] :
+                $match[2] === "en" && $GLOBALS["LANG"] === "en" ? $data[$keys[0]] :
                 ""
             ;
             unset($data[$keys[0]]);
