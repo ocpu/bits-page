@@ -1,0 +1,4 @@
+- [Wordpress data](https://bits.bthstudent.se/wp-json/)
+- [Wordpress data endpoint](https://bits.bthstudent.se/wp-json/wp/v2/)
+- [Wordpress posts endpoint](https://bits.bthstudent.se/wp-json/wp/v2/posts)
+- [Wordpress API reference](https://developer.wordpress.org/rest-api/reference/)
